@@ -85,9 +85,17 @@ socket.onmessage = function(event) {
         document.getElementById("turn").innerHTML = ""
     }
 
+    let shown_id = ""
+    if (player_id == "0") {
+        shown_id = 1
+    }
+    else if (player_id == "1") {
+        shown_id = 2
+    }
+
     document.getElementById("GridDisplay").innerHTML = s;
-    document.getElementById("playername").innerHTML = "You are Player " + player_id;
-    document.getElementById("score").innerHTML = "P0: " + counts[0] + " P1: " + counts[1];
+    document.getElementById("playername").innerHTML = "You are Player " + shown_id;
+    document.getElementById("score").innerHTML = "P1: " + counts[0] + " P2: " + counts[1];
 
     if (parseInt(counts[0]) + parseInt(counts[1]) == MAX_SCORE) {
         socket.send("Reset")
