@@ -74,6 +74,7 @@ socket.onmessage = function(event) {
     document.getElementById("score").innerHTML = "P0: " + counts[0] + " P1: " + counts[1];
 
     if (parseInt(counts[0]) + parseInt(counts[1]) == MAX_SCORE) {
+        socket.send("Reset")
         if (counts[0] > counts[1]) {
             alert("Game over, P0 wins")
         } else if (counts[1] > counts[0]) {
@@ -81,9 +82,6 @@ socket.onmessage = function(event) {
         } else {
             alert("Tie!")
         }
-
-        // Now, reset the game. Don't worry about sending twice, server has logic for it.
-        socket.send("Reset")
     }
   };
 
