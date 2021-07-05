@@ -54,14 +54,12 @@ socket.onmessage = function(event) {
         s+= '<div class="row">'
     for (j = 0; j < n; j++) {
         let colors = {
-            "R": "Maroon",
-            "O": "DarkOrange",
-            "Y": "Yellow",
-            "G": "LimeGreen",
-            "B": "MidnightBlue",
-            "I": "Indigo",
-            "P0": "Black",
-            "P1": "Black",
+            "R": "#E61D51",
+            "O": "#404040",
+            "Y": "#F9E924",
+            "G": "#A0DD52",
+            "B": "#3DA9E8",
+            "I": "#65409D",
         }
 
         s+= `<div class="cell" style="background-color:${colors[board[i][j][0]]}"></div>`;
