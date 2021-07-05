@@ -38,11 +38,21 @@ socket.onmessage = function(event) {
         document.getElementById("I").disabled = false;
     }
 
+    document.getElementById("R").style.visibility = "visible";
+    document.getElementById("O").style.visibility = "visible";
+    document.getElementById("Y").style.visibility = "visible";
+    document.getElementById("G").style.visibility = "visible";
+    document.getElementById("B").style.visibility = "visible";
+    document.getElementById("I").style.visibility = "visible";
+
+
     if (player_colors[0] != "P0") {
         document.getElementById(player_colors[0]).disabled = true;
+        document.getElementById(player_colors[0]).style.visibility = "hidden"
     }
     if (player_colors[1] != "P1") {
         document.getElementById(player_colors[1]).disabled = true;
+        document.getElementById(player_colors[1]).style.visibility = "hidden"
     }
 
     
@@ -67,6 +77,12 @@ socket.onmessage = function(event) {
 
     }
         s+= '</div>'
+    }
+
+    if (player_id != current_inactive) {
+        document.getElementById("turn").innerHTML = "It's your turn"
+    } else {
+        document.getElementById("turn").innerHTML = ""
     }
 
     document.getElementById("GridDisplay").innerHTML = s;
